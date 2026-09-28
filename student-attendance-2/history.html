@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance History · Student Attendance Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="mobile-topbar">
+    <button id="mobile-menu-toggle" aria-label="Open navigation menu">☰</button>
+    <span>Attendance System</span>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">SA</div>
+        <div class="sidebar-brand-text">
+          Student Attendance
+          <small>Management System</small>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html"><span class="nav-icon">▦</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="nav-icon">☺</span> Students</a></li>
+        <li><a href="attendance.html"><span class="nav-icon">✓</span> Attendance</a></li>
+        <li><a href="history.html"><span class="nav-icon">◷</span> Attendance History</a></li>
+      </ul>
+      <div class="sidebar-footer">SIWES Final Project</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <div>
+          <h1>Attendance History</h1>
+          <p>Filter past attendance records by date, class, student, or status.</p>
+        </div>
+      </header>
+
+      <div class="filter-bar">
+        <div class="form-group">
+          <label for="filter-date">Date</label>
+          <input type="date" id="filter-date" />
+        </div>
+        <div class="form-group">
+          <label for="filter-class">Class</label>
+          <select id="filter-class"></select>
+        </div>
+        <div class="form-group">
+          <label for="filter-student">Student</label>
+          <select id="filter-student"></select>
+        </div>
+        <div class="form-group">
+          <label for="filter-status">Status</label>
+          <select id="filter-status">
+            <option value="">All statuses</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Late">Late</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary" id="clear-filters-btn">Clear filters</button>
+      </div>
+
+      <div class="section-block-header">
+        <h2>Results</h2>
+        <span class="attendance-summary-text" id="history-result-count"></span>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Class</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="history-table-body"></tbody>
+        </table>
+        <p class="empty-state" id="history-empty-state" hidden>No attendance records match these filters.</p>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Details · Student Attendance Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="mobile-topbar">
+    <button id="mobile-menu-toggle" aria-label="Open navigation menu">☰</button>
+    <span>Attendance System</span>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">SA</div>
+        <div class="sidebar-brand-text">
+          Student Attendance
+          <small>Management System</small>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html"><span class="nav-icon">▦</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="nav-icon">☺</span> Students</a></li>
+        <li><a href="attendance.html"><span class="nav-icon">✓</span> Attendance</a></li>
+        <li><a href="history.html"><span class="nav-icon">◷</span> Attendance History</a></li>
+      </ul>
+      <div class="sidebar-footer">SIWES Final Project</div>
+    </aside>
+
+    <main class="main-content">
+      <a class="back-link" href="students.html">← Back to Students</a>
+
+      <div id="student-not-found" hidden>
+        <div class="table-card" style="padding: 40px 20px; text-align: center; color: var(--color-text-secondary);">
+          This student could not be found. They may have been deleted.
+        </div>
+      </div>
+
+      <div id="student-details-content" hidden>
+        <div class="card profile-header" id="student-profile-card">
+          <div class="profile-avatar" id="detail-initials"></div>
+          <div>
+            <h1 id="detail-fullname" style="margin-bottom: 2px;"></h1>
+            <div class="profile-meta">
+              <span><strong>ID:</strong> <span id="detail-studentid"></span></span>
+              <span><strong>Class:</strong> <span id="detail-class"></span></span>
+              <span><strong>Gender:</strong> <span id="detail-gender"></span></span>
+              <span><strong>Age:</strong> <span id="detail-age"></span></span>
+              <span><strong>Phone:</strong> <span id="detail-phone"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <section class="stats-grid">
+          <div class="stat-card stat-card--present">
+            <div class="stat-label">Present Days</div>
+            <div class="stat-value" id="detail-present-days">0</div>
+          </div>
+          <div class="stat-card stat-card--absent">
+            <div class="stat-label">Absent Days</div>
+            <div class="stat-value" id="detail-absent-days">0</div>
+          </div>
+          <div class="stat-card stat-card--late">
+            <div class="stat-label">Late Days</div>
+            <div class="stat-value" id="detail-late-days">0</div>
+          </div>
+          <div class="stat-card stat-card--rate">
+            <div class="stat-label">Attendance Rate</div>
+            <div class="stat-value" id="detail-rate">0%</div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-block-header">
+            <h2>Attendance History</h2>
+          </div>
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="student-history-body"></tbody>
+            </table>
+            <p class="empty-state" id="student-history-empty" hidden>No attendance has been recorded for this student yet.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/student-details.js"></script>
+</body>
+</html>

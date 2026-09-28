@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Student Attendance Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="mobile-topbar">
+    <button id="mobile-menu-toggle" aria-label="Open navigation menu">☰</button>
+    <span>Attendance System</span>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">SA</div>
+        <div class="sidebar-brand-text">
+          Student Attendance
+          <small>Management System</small>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html"><span class="nav-icon">▦</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="nav-icon">☺</span> Students</a></li>
+        <li><a href="attendance.html"><span class="nav-icon">✓</span> Attendance</a></li>
+        <li><a href="history.html"><span class="nav-icon">◷</span> Attendance History</a></li>
+      </ul>
+      <div class="sidebar-footer">SIWES Final Project</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p>An overview of your students and today's attendance.</p>
+        </div>
+        <div class="quick-links">
+          <a class="btn btn-secondary" href="students.html">Manage Students</a>
+          <a class="btn btn-primary" href="attendance.html">Mark Attendance</a>
+        </div>
+      </header>
+
+      <section class="stats-grid" id="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-label">Total Students</div>
+          <div class="stat-value" id="stat-total-students">0</div>
+        </div>
+        <div class="stat-card stat-card--present">
+          <div class="stat-label">Present Today</div>
+          <div class="stat-value" id="stat-present-today">0</div>
+        </div>
+        <div class="stat-card stat-card--absent">
+          <div class="stat-label">Absent Today</div>
+          <div class="stat-value" id="stat-absent-today">0</div>
+        </div>
+        <div class="stat-card stat-card--late">
+          <div class="stat-label">Late Today</div>
+          <div class="stat-value" id="stat-late-today">0</div>
+        </div>
+        <div class="stat-card stat-card--rate">
+          <div class="stat-label">Overall Attendance</div>
+          <div class="stat-value" id="stat-overall-rate">0%</div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-block-header">
+          <h2>Recent Attendance</h2>
+          <a href="history.html">View full history →</a>
+        </div>
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Student ID</th>
+                <th>Date</th>
+                <th>Class</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="recent-attendance-body"></tbody>
+          </table>
+          <p class="empty-state" id="recent-attendance-empty" hidden>
+            No attendance has been recorded yet. Head to
+            <a href="attendance.html">Attendance</a> to mark today's register.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
