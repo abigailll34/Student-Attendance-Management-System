@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Attendance · Student Attendance Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="mobile-topbar">
+    <button id="mobile-menu-toggle" aria-label="Open navigation menu">☰</button>
+    <span>Attendance System</span>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">SA</div>
+        <div class="sidebar-brand-text">
+          Student Attendance
+          <small>Management System</small>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html"><span class="nav-icon">▦</span> Dashboard</a></li>
+        <li><a href="students.html"><span class="nav-icon">☺</span> Students</a></li>
+        <li><a href="attendance.html"><span class="nav-icon">✓</span> Attendance</a></li>
+        <li><a href="history.html"><span class="nav-icon">◷</span> Attendance History</a></li>
+      </ul>
+      <div class="sidebar-footer">SIWES Final Project</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <div>
+          <h1>Mark Attendance</h1>
+          <p>Choose a class and date, then mark every student Present, Absent, or Late.</p>
+        </div>
+      </header>
+
+      <div class="filter-bar">
+        <div class="form-group">
+          <label for="attendance-class">Class</label>
+          <select id="attendance-class"></select>
+        </div>
+        <div class="form-group">
+          <label for="attendance-date">Date</label>
+          <input type="date" id="attendance-date" />
+        </div>
+        <button class="btn btn-secondary" id="mark-all-present-btn" disabled>Mark all Present</button>
+      </div>
+
+      <div class="attendance-toolbar">
+        <span class="attendance-summary-text" id="attendance-summary"></span>
+        <button class="btn btn-primary" id="save-attendance-btn" disabled>Save Attendance</button>
+      </div>
+
+      <div class="attendance-list" id="attendance-list"></div>
+      <p class="empty-state table-card" id="attendance-empty-state" style="padding: 40px 20px;"></p>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/attendance.js"></script>
+</body>
+</html>
